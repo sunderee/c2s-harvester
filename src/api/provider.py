@@ -5,7 +5,7 @@ from ujson import dumps
 
 class ApiProvider:
     def __init__(self, base_url: str):
-        self.__base_url = base_url
+        self.__base_url: str = base_url
 
     async def get_request(self, endpoint: str, query_params: Dict[str, str]) -> Coroutine[Optional[str]]:
         async with ClientSession() as session:
