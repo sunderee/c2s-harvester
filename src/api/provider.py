@@ -2,7 +2,7 @@ from typing import Dict, Any
 from aiohttp import ClientSession, ClientResponse
 from ujson import dumps
 
-from src.api.exceptions.api import ApiException
+from src.exceptions.api import ApiException
 
 
 class ApiProvider:
