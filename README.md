@@ -12,15 +12,20 @@ I would like to thank everyone involved in creation of aforementioned tools.
 
 ## Usage
 
-Make sure you have [`nmap`](https://nmap.org) installed on your system. 
+Make sure you have [`nmap`](https://nmap.org) installed on your system. Create a `.env` file at the project root with
+the API keys to third-party providers:
 
-### API keys
-
-This tool heavily relies on third-party services whose API keys are required. The necessary credentials are provided in
-form of an `.env` file, stored at the project root
-
-```bash
+```dotenv
+BING="XXX"
+CENSYS="XXX"
+GITHUB="XXX"
+HUNTER="XXX"
+INTELX="XXX"
+PENTEST_TOOLS="XXX"
+PROJECT_DISCOVERY="XXX"
+SECURITY_TRAILS="XXX"
 SHODAN="XXX"
+SPYSE="XXX"
 ```
 
 ### Installation
@@ -33,7 +38,7 @@ containerized approach is recommended (easier to use).
 
 Similarly to `theHarvester`, it runs a series of passive and active recon tasks. Alongside with that, it also attempts
 to exploit found vulnerabilities through series of tasks. The vulnerability analysis and exploitation is **not** a reliable
-tool, but it's included because it might help identify possible points of attack.
+tool, but it's included because it might help identify possible points of attack faster.
 
 ## License
 
