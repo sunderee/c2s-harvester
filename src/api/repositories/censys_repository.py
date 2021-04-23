@@ -18,7 +18,7 @@ class CensysRepository:
 
     async def query_ip(self, ip_address: str) -> Optional[dict]:
         try:
-            result = await self.__provider.get_request(
+            result: str = await self.__provider.get_request(
                 f'api/v1/view/ipv4/{ip_address}',
                 headers={'Authorization': f'Basic {self.__credentials}'})
             return loads(result)
