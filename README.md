@@ -16,16 +16,16 @@ Make sure you have [`nmap`](https://nmap.org) installed on your system. Create a
 the API keys to third-party providers:
 
 ```dotenv
-BING="XXX"
-CENSYS="XXX"
-GITHUB="XXX"
-HUNTER="XXX"
-INTELX="XXX"
-PENTEST_TOOLS="XXX"
-PROJECT_DISCOVERY="XXX"
-SECURITY_TRAILS="XXX"
-SHODAN="XXX"
-SPYSE="XXX"
+BING=XXX
+CENSYS=XXX
+GITHUB=XXX
+HUNTER=XXX
+INTELX=XXX
+PENTEST_TOOLS=XXX
+PROJECT_DISCOVERY=XXX
+SECURITY_TRAILS=XXX
+SHODAN=XXX
+SPYSE="XXX
 ```
 
 ### Installation

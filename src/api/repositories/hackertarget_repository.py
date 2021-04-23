@@ -14,7 +14,7 @@ class HackerTargetRepository:
     @property
     async def dns_lookup(self) -> Optional[str]:
         try:
-            return await self.__provider.get_request('dnslookup', {'q': self.__domain})
+            return await self.__provider.get_request('dnslookup', query_params={'q': self.__domain})
         except ApiException as exception:
             print(f'Exception occurred:\n{exception}')
             return None
@@ -22,7 +22,7 @@ class HackerTargetRepository:
     @property
     async def dns_host_records(self) -> Optional[str]:
         try:
-            return await self.__provider.get_request('hostsearch', {'q': self.__domain})
+            return await self.__provider.get_request('hostsearch', query_params={'q': self.__domain})
         except ApiException as exception:
             print(f'Exception occurred:\n{exception}')
             return None
@@ -31,7 +31,9 @@ class HackerTargetRepository:
     async def geo_ip(self) -> Optional[str]:
         try:
             return list(finditer(r'(?<=Country: )[\w\s]+$',
-                                 await self.__provider.get_request('geoip', {'q': gethostbyname(self.__domain)}),
+                                 await self.__provider.get_request(
+                                     'geoip',
+                                     query_params={'q': gethostbyname(self.__domain)}),
                                  MULTILINE))[0].group(0)
         except ApiException as exception:
             print(f'Exception occurred:\n{exception}')
