@@ -12,7 +12,7 @@ class ApiProvider:
     async def get_request(
             self,
             endpoint: str,
-            query_params: Dict[str, Union[str, int, Any]],
+            query_params: Optional[Dict[str, Union[str, int, Any]]] = None,
             headers: Optional[Dict[str, str]] = None
     ) -> str:
         async with ClientSession(headers=headers) as session:
@@ -24,7 +24,7 @@ class ApiProvider:
     async def post_request(
             self,
             endpoint: str,
-            payload: Dict[str, Any],
+            payload: Optional[Dict[str, Any]] = None,
             headers: Optional[Dict[str, str]] = None
     ) -> str:
         async with ClientSession(json_serialize=dumps, headers=headers) as session:
