@@ -23,7 +23,7 @@ class HunterRepository:
         try:
             raw_result = await self.__provider.get_request(
                 'v2/domain-search',
-                {'domain': self.__domain, 'api_key': self.__api_key if self.__api_key is not None else ''}
+                {'domain': self.__domain, 'api_key': self.__api_key or ''}
             )
             result: dict = loads(raw_result)
             return list(map(lambda element: HunterResponse(

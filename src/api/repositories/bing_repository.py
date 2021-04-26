@@ -22,7 +22,7 @@ class BingRepository:
             raw_result: str = await self.__provider.get_request(
                 'v7.0/search',
                 query_params={'q': query, 'count': 50, 'responseFilter': 'entities,webpages', 'safeSearch': 'off'},
-                headers={'Ocp-Apim-Subscription-Key': self.__bing_api if self.__bing_api is not None else ''}
+                headers={'Ocp-Apim-Subscription-Key': self.__bing_api or ''}
             )
             result: Union[Dict[str, Any], List[Dict[str, Any]]] = loads(raw_result)
             raw_values: Iterator[Dict[str, Any]] = map(
