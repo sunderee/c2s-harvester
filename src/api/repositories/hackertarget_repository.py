@@ -35,9 +35,6 @@ class HackerTargetRepository:
                                      'geoip',
                                      query_params={'q': gethostbyname(self.__domain)}),
                                  MULTILINE))[0].group(0)
-        except ApiException as exception:
-            print(f'Exception occurred:\n{exception}')
-            return None
-        except IndexError:
-            print('Error: no matches were found')
+        except (ApiException, IndexError):
+            print('Exception occurred')
             return None
