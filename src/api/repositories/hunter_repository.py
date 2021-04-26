@@ -19,7 +19,7 @@ class HunterRepository:
         self.__api_key = env_file['HUNTER']
         self.__domain: str = domain
 
-    async def domain_lookup(self) -> List[HunterResponse]:
+    async def domain_lookup(self) -> Optional[List[HunterResponse]]:
         try:
             raw_result = await self.__provider.get_request(
                 'v2/domain-search',
