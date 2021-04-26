@@ -13,17 +13,16 @@ HunterResponse = namedtuple('HunterResponse', 'value name linked_in twitter phon
 
 
 class HunterRepository:
-    def __init__(self, domain: str):
+    def __init__(self):
         self.__provider: ApiProvider = ApiProvider('api.hunter.io')
         env_file: Dict[str, Optional[str]] = dotenv_values(dotenv_path=f'{abspath(getcwd())}/.env')
         self.__api_key = env_file['HUNTER']
-        self.__domain: str = domain
 
-    async def domain_lookup(self) -> Optional[List[HunterResponse]]:
+    async def domain_lookup(self, domain: str) -> Optional[List[HunterResponse]]:
         try:
             raw_result = await self.__provider.get_request(
                 'v2/domain-search',
-                {'domain': self.__domain, 'api_key': self.__api_key or ''}
+                {'domain': domain, 'api_key': self.__api_key or ''}
             )
             result: dict = loads(raw_result)
             return list(map(lambda element: HunterResponse(
