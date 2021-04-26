@@ -19,7 +19,7 @@ class ApiProvider:
             response: ClientResponse = await session.get(f'https://{self.__base_url}/{endpoint}', params=query_params)
             if response.status == 200:
                 return await response.text('utf-8')
-            raise ApiException([str(response.status), response.text()])
+            raise ApiException([str(response.status), await response.text('utf-8')])
 
     async def post_request(
             self,
@@ -31,4 +31,4 @@ class ApiProvider:
             response: ClientResponse = await session.post(f'https://{self.__base_url}/{endpoint}', json=payload)
             if response.status == 200:
                 return await response.text('utf-8')
-            raise ApiException([str(response.status), response.text()])
+            raise ApiException([str(response.status), await response.text()])
