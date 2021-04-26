@@ -33,6 +33,6 @@ class HunterRepository:
                 phone=element['phone_number'],
                 emails=list(map(lambda data: data['url'], list(element['emails'])))
             ), list(result['data']['emails'])))
-        except ApiException as exception:
+        except (ApiException, KeyError) as exception:
             print(f'Exception occurred:\n{exception}')
             return None

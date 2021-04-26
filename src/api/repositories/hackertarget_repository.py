@@ -8,7 +8,7 @@ from src.exceptions.api import ApiException
 
 class HackerTargetRepository:
     def __init__(self):
-        self.__provider: ApiProvider = ApiProvider('api.repositories.com')
+        self.__provider: ApiProvider = ApiProvider('api.hackertarget.com')
 
     async def dns_lookup(self, domain: str) -> Optional[str]:
         try:

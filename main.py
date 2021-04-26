@@ -57,11 +57,11 @@ async def main():
     outputs: str = 'ENUMERATION RESULTS\n' + \
                    f'BING RESULTS\n{bing_results}\n\n' + \
                    f'CENSYS RESULTS\n{censys_results}\n\n' + \
-                   f'CERT SPOTTER RESULTS\n{cert_spotter_results}' + \
-                   f'HACKERTARGET API RESULTS\n{hacker_target_results}' + \
-                   f'HUNTER RESULTS\n{hunter_results}' + \
-                   f'OTX RESULTS\n{otx_results}' + \
-                   f'SHODAN RESULTS\n{shodan_results}'
+                   f'CERT SPOTTER RESULTS\n{cert_spotter_results}\n\n' + \
+                   f'HACKERTARGET API RESULTS\n{hacker_target_results}\n\n' + \
+                   f'HUNTER RESULTS\n{hunter_results}\n\n' + \
+                   f'OTX RESULTS\n{otx_results}\n\n' + \
+                   f'SHODAN RESULTS\n{shodan_results}\n\n'
 
     if arguments.file is not None:
         with open(str(arguments.file), 'w') as file:
